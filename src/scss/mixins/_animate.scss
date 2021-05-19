@@ -1,0 +1,5 @@
+@mixin active-animated($animate-name) {
+	.#{$animate-name}.active-animated {
+  		animation-name: $animate-name;
+	}
+}

@@ -1,0 +1,18 @@
+extends pug/base
+
+prepend vars
+
+append vars
+	//-			
+
+block content
+	section.sec-questionary
+		.container
+			+questionary({
+				photo: `${baseDir}images/photo-candidate.jpg`,
+				name: 'Руслан',
+				dateOfBirth: '09.09.1989',
+				city: 'Одесса',
+				phone: '+38050-032-76-37'
+			})
+								

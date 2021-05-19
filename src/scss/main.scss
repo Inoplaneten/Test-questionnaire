@@ -1,0 +1,235 @@
+// stylelint-disable at-rule-empty-line-before
+
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "sprites";
+@import "fonts";
+@import "vendor";
+@import "base";
+@import "helpers";
+@import "animate";
+
+// Section Questionary
+
+.sec-questionary {
+	padding: 60px 0 100px;
+
+	@include mobile-xl {
+		padding: 30px 0;
+	}
+}
+
+.questionary-item {
+	background: #fffcfa url("../images/bg-questionary.jpg") repeat-x;
+
+	&:not(:last-child) {
+		margin-bottom: 2px;
+	}
+}
+
+.candidate-data {
+	padding: 30px 20px 32px;
+
+	@include mobile-xl {
+		flex-direction: column;
+		align-items: center;
+	}
+} 
+
+.candidate-photo {
+	width: 138px;
+	height: 138px;
+	border-radius: 50%;
+	margin-right: 21px;
+	flex-shrink: 0;
+
+	@include mobile-xl {
+		margin: 0 0 25px 0;
+	}
+}
+
+.candidate-info {
+	max-width: 460px;
+	width: 75%;
+	position: relative;
+
+	@include mobile-xl {
+		width: 100%;
+	}
+
+	&__field {
+		width: 100%;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: $color-light-gray;
+		pointer-events: none;
+
+		&:not(:last-of-type) {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__icon-app {
+		position: absolute;
+	    right: -16px;
+	    bottom: -21px;
+
+	    @include mobile-xl {
+			max-width: 140px;
+		}
+	}
+}
+
+.candidate-skills {
+	padding: 32px 20px 39px;
+
+	&__title {
+		margin-bottom: 25px;
+	}
+
+	&__list {
+		margin-bottom: -44px;
+
+		@include mobile-xl {
+			margin-bottom: -30px;
+		}
+	}
+
+	&__item {
+		max-width: 139px;
+		width: calc(25% - 20px);
+		margin-bottom: 44px;
+
+		@include laptop-h {
+			width: calc(33.3% - 20px);
+		}
+
+		@include mobile-xl {
+			width: calc(50% - 10px);
+			margin-bottom: 30px;
+		}
+	}
+
+	&__item-label {
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		cursor: pointer;
+
+		&:hover .candidate-skills__icon-check::before {
+			box-shadow: 0 0 10px rgba($color-blue, 0.5);
+		}
+	}
+
+	&__icon-check {
+		position: relative;
+		padding: 5px 0 5px 27px;
+
+		@include before {
+			width: 19px;
+			height: 19px;
+			background-color: #eee;
+			border-radius: 5px;
+			left: 0;
+			top: 2px;
+		}
+
+		@include after {
+			width: 13px;
+			height: 10px;
+			background-image: url("../images/icons/icon-check.svg");
+			left: 3px;
+			top: 6px;
+			opacity: 0;
+		}
+
+		&::before, &::after {
+			position: absolute;
+		}
+	}
+
+	&__item-checkbox:checked + &__icon-check::before {
+		background-color: $color-blue;
+	}
+
+	&__item-checkbox:checked + &__icon-check::after {
+		opacity: 1;
+	}
+}
+
+.candidate-level {
+	padding: 59px 20px 65px;
+
+	@include mobile-xl {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	&__scale {
+		position: relative;
+
+		@include mobile-xl {
+			max-width: 210px;
+		}
+	}
+
+	&__scale-img {
+		display: block;
+	}
+
+	&__arrow-box {
+		width: 145px;
+	    height: 145px;
+	    position: absolute;
+	    top: 50px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    transition-duration: 0.5s;
+
+	    @include mobile-xl {
+			width: 115px;
+	    	height: 115px;
+	    	top: 41px;
+		}
+	}
+
+	&__arrow {
+		position: absolute;
+	    top: 41%;
+	    left: 15%;
+	    transform: rotate(-38deg);
+
+	    @include mobile-xl {
+			max-width: 45px;
+		}
+	}
+
+	&__info {
+		margin: 8px 0 0 10.8%;
+
+		@include laptop-h {
+			margin-left: 7%;
+		}
+
+		@include mobile-xl {
+			margin: 30px 0 0 0;
+		}
+	}
+
+	&__title {
+		margin-bottom: 14px;
+		line-height: 1.3;
+	}
+
+	&__result {
+		font-size: 50px;
+		font-weight: 900;
+		line-height: 1;
+		color: $color-blue;
+
+		@include laptop-h {
+			font-size: 45px;
+		}
+	}
+}

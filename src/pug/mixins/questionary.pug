@@ -1,0 +1,83 @@
+- 
+	var skills = [
+		{
+			value: 'HTML5',
+			level: '100'
+		},
+		{
+			value: 'SASS',
+			level: '100'
+		},
+		{
+			value: 'VanillaJs',
+			level: '50'
+		},
+		{
+			value: 'GIT', 
+			level: '70'
+		},
+		{
+			value: 'CSS3',
+			level: '100'
+		},
+		{
+			value: 'LESS', 
+			level: '50'
+		},
+		{
+			value: 'Angular',
+			level: '70'
+		},
+		{
+			value: 'Foundation', 
+			level: '59'
+		},
+		{
+			value: 'БЭМ',
+			level: '100'
+		},
+		{
+			value: 'Gulp',
+			level: '100'
+		},
+		{
+			value: 'jQuery',
+			level: '100'
+		},
+		{
+			value: 'Bootstrap',
+			level: '100'
+		}
+	]
+
+mixin questionary(options)
+	.questionary&attributes(attributes)
+		.candidate-data.questionary-item.d-flex.align-items-start
+			img.candidate-photo(src=options.photo alt=options.name)
+			.candidate-info
+					input.candidate-info__field(type="text" name="name" placeholder="Имя" value=options.name)
+					input.candidate-info__field(type="text" name="dateOfBirth" placeholder="Дата рождения" value=options.dateOfBirth)
+					input.candidate-info__field(type="text" name="city" placeholder="Город" value=options.city)
+					input.candidate-info__field(type="tel" name="phone" placeholder="Контактыне данные" value=options.phone)
+					img.candidate-info__icon-app.animated-item.zoomInDown(src=`${baseDir}images/icon-approved.png` alt="Знак принятия")
+
+		.candidate-skills.questionary-item
+			h2.candidate-skills__title
+				| Навыки
+			ul.candidate-skills__list.d-flex.f-wrap.j-content-between
+				each skill in skills
+					li.candidate-skills__item
+						label.candidate-skills__item-label
+							input.candidate-skills__item-checkbox(type="checkbox" name="skills[]" value=skill.value data-level=skill.level)
+							span.candidate-skills__icon-check=skill.value
+
+		.candidate-level.questionary-item.d-flex
+			.candidate-level__scale
+				img.candidate-level__scale-img(src=`${baseDir}images/scale-results.png` alt="Шкала")
+				.candidate-level__arrow-box
+					img.candidate-level__arrow(src=`${baseDir}images/scale-arrow-results.png` alt="Показатель уровня")
+			.candidate-level__info
+				h2.candidate-level__title
+					| Мой уровень владения #[br] Java Script
+				span.candidate-level__result#candidate-level-result
+					| 0	 		

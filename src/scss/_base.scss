@@ -1,0 +1,95 @@
+* {
+	margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: $color-light-white;
+	-webkit-font-smoothing: antialiased;
+	text-decoration-skip: objects;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+	font: 500 12px $font-family-roboto;
+	color: $color-light-gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500;
+	color: $color-black;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+ul {
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+a, 
+button, 
+input, 
+img,
+*::placeholder,
+*::before,
+*::after {
+	transition-duration: 0.4s;
+}
+
+input {
+	display: block;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid $color-black-gray;
+	padding: 0 0 8px;
+	font-size: inherit;
+	color: $color-black-gray;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+*::placeholder {
+	text-transform: uppercase;
+	color: $color-light-gray;
+}
+
+button:not([disabled]),
+a[role="button"]:not([disabled]) {
+	cursor: pointer;
+}
+
+img {
+	max-width: 100%;
+	object-fit: cover;
+}
+
+.container {
+	max-width: 660px;
+	margin: 0 auto;
+
+	@include laptop-h {
+		max-width: 540px;
+	}
+
+	@include mobile-xl {
+		max-width: 90%;
+	}
+}
